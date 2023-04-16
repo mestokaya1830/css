@@ -1,5 +1,32 @@
-@background-color:blue;
+//variable
+@main-background:#f1f1f1;
+@main-text: blue;
+
+.mixing(){
+  color: @main-text;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.dynamic-mixing(@size:1px, @color:#000){
+  border: @size solid @color;
+}
 
 body{
-  background-color: @background-color;
+  background-color: @main-background;
+}
+
+h1{
+  .mixing;
+}
+
+h2{
+  .mixing;//mixing (use other class here)
+  color: #444;
+}
+
+h3{
+  .dynamic-mixing(5px, #ddd);
 }
